@@ -58,3 +58,5 @@
 .square-o:before {
   content: "O";
 }
+
+#hidden {display: none;}

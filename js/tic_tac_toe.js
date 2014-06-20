@@ -42,6 +42,9 @@ function resultIsAWin(counter, player){
 
 function resultIsADraw() {
   if(playerSquares['x'].length + playerSquares['o'].length === 9){
+    //$(function() {
+    	//$('#doge').dialog();
+    //});
     alert("Doge's Game!");
   }
 }
