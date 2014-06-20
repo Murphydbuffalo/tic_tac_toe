@@ -68,7 +68,12 @@ $('.board').on('click', ".square:not('.square-x, .square-o')", function(event) {
 
 	playerToken = assignToken(playerToken);
 
+	if(playerSquares['x'].length + playerSquares['o'].length === 9){
+		return alert("Doge's Game!");
+	}
+
 });
 
-//At the end of each click event, check if the current player has every index from any of the winning combinations
+
+
 	
