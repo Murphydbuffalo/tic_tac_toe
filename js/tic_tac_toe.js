@@ -27,7 +27,6 @@ function assignToken(token) {
   } else {
   	  return token = 'x';
     }
-  
 }
 
 function currentIndex(square) {
@@ -36,13 +35,14 @@ function currentIndex(square) {
 
 function resultIsAWin(counter, player){
 	if(counter >= 3) {
-	  return alert(player + ' wins!');
+	  alert(player + ' wins!');
+	  exit();
    } 
 }
 
 function resultIsADraw() {
   if(playerSquares['x'].length + playerSquares['o'].length === 9){
-	  return alert("Doge's Game!");
+    alert("Doge's Game!");
   }
 }
 
@@ -65,20 +65,15 @@ $('.board').on('click', ".square:not('.square-x, .square-o')", function(event) {
 	    	if(winningCombinations[i][index] == playerSquares[playerToken][finalIndex]) {
 
 	    		++squareCount;
-	    		console.log(squareCount);
 	    	}
-
 	    }
 	    	resultIsAWin(squareCount, playerToken);
-
 	  }
 			squareCount = 0;	    
 	}
-
 	playerToken = assignToken(playerToken);
 
 	resultIsADraw();
-
 });
 
 
