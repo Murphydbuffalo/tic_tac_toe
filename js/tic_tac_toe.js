@@ -32,7 +32,19 @@ function assignToken(token) {
 
 function currentIndex(square) {
 	return $('.board .square').index(square);
-	}
+}
+
+function resultIsAWin(counter, player){
+	if(counter >= 3) {
+	  return alert(player + ' wins!');
+   } 
+}
+
+function resultIsADraw() {
+  if(playerSquares['x'].length + playerSquares['o'].length === 9){
+	  return alert("Doge's Game!");
+  }
+}
 
 $('.board').on('click', ".square:not('.square-x, .square-o')", function(event) {
 
@@ -40,11 +52,10 @@ $('.board').on('click', ".square:not('.square-x, .square-o')", function(event) {
 
 	playerSquares[playerToken].push(currentIndex($chosenSquare));
 
-	//console.log(playerSquares[playerToken]);
-
 	addClass($chosenSquare, playerToken);
 
 	var squareCount = 0;
+
 	for(var i = 0; i < winningCombinations.length; ++i) {
 
 	  for(var index = 0; index < winningCombinations[i].length; index++) {
@@ -56,23 +67,22 @@ $('.board').on('click', ".square:not('.square-x, .square-o')", function(event) {
 	    		++squareCount;
 	    		console.log(squareCount);
 	    	}
-	    		if(squareCount >= 3) {
-	          return alert(playerToken + ' wins!');
-          } 
-
-	    	}
 
 	    }
-			squareCount = 0;	    
+	    	resultIsAWin(squareCount, playerToken);
+
 	  }
+			squareCount = 0;	    
+	}
 
 	playerToken = assignToken(playerToken);
 
-	if(playerSquares['x'].length + playerSquares['o'].length === 9){
-		return alert("Doge's Game!");
-	}
+	resultIsADraw();
 
 });
+
+
+
 
 
 
